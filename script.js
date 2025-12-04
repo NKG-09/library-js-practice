@@ -48,3 +48,14 @@ function Book(title, author, pages, completed) {
   this.el.appendChild(firstSection);
   this.el.appendChild(secondSection);
 }
+
+function addBookToLibrary(title, author, pages, completed) {
+  const book = new Book(title, author, pages, completed);
+  books.push(book);
+  booksDisplay.appendChild(book.el);
+}
+
+function removeBookFromLibrary(id) {
+    books.find(book => book.id === id).el.remove();
+    books.splice(books.findIndex(book => book.id === id), 1);
+}
