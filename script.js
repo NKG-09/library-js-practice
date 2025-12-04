@@ -64,13 +64,17 @@ function Book(title, author, pages, completed) {
   this.el.appendChild(secondSection);
 }
 
+function refreshLibrary() {
+  booksDisplay.innerHTML = "";
+  books.forEach(book => booksDisplay.appendChild(book.el));
+}
+
 function addBookToLibrary(title, author, pages, completed) {
-  const book = new Book(title, author, pages, completed);
-  books.push(book);
-  booksDisplay.appendChild(book.el);
+  books.push(new Book(title, author, pages, completed));
+  refreshLibrary();
 }
 
 function removeBookFromLibrary(id) {
-    books.find(book => book.id === id).el.remove();
-    books.splice(books.findIndex(book => book.id === id), 1);
+  books.splice(books.findIndex(book => book.id === id), 1);
+  refreshLibrary();
 }
