@@ -1,6 +1,21 @@
 const books = [];
 const booksDisplay = document.querySelector("#books");
 
+document.querySelector("form button").addEventListener("click", (e) => {
+  if (!document.querySelector("form").checkValidity()) { return; }
+
+  e.preventDefault();
+  
+  const title = document.querySelector("#title").value;
+  const author = document.querySelector("#author").value;
+  const pages = document.querySelector("#pages").value;
+  const completed = document.querySelector("#completed").checked;
+
+  document.querySelector("form").reset();
+
+  addBookToLibrary(title, author, pages, completed);
+});
+
 function Book(title, author, pages, completed) {
   this.title = title;
   this.author = author;
