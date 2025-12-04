@@ -84,3 +84,52 @@ body {
   background: none;
   border: none;
 }
+
+form {
+  width: 350px;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-auto-rows: 30px;
+  gap: 10px;
+
+  align-items: center;
+}
+
+form label {
+  color: white;
+  text-align: end;
+}
+
+#title,
+#author,
+#pages {
+  width: 100%;
+  font-family: "Playwrite NO";
+  background: none;
+  color: white;
+  outline: none;
+  border: dotted white 1px;
+  border-radius: 15px;
+  padding: 10px;
+  height: 100%;
+}
+
+#title:focus,
+#author:focus,
+#pages:focus {
+  border-style: solid;
+  border-width: 3px;
+}
+
+#completed {
+  justify-self: start;
+}
+
+form button {
+  grid-column: 1 / -1;
+  font-family: "Playwrite NO";
+  background: white;
+  border: none;
+  border-radius: 15px;
+  height: 100%;
+}
